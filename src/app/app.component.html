@@ -1,0 +1,136 @@
+<router-outlet></router-outlet>
+
+
+
+<div class="container my-5" style="background: cornflowerblue">
+
+<div class="col-lg-8">
+  <form #newUserForm ="ngForm" (ngSubmit) = "onSubmit(newUserForm)" >
+
+    <div class="input-group form-group">
+
+      <input required type="text" class="form-control" placeholder="Creator name" [(ngModel)]="name"
+      #typedName = "ngModel"
+      name="name">
+    </div>
+    <div style="color: red;" *ngIf = "!typedName.valid && typedName.touched">
+        name  is required!
+    </div>
+
+
+    <div class="input-group form-group">
+
+      <input required  type="text" class="form-control" placeholder="Description" [(ngModel)] = "description"
+             #typedDescription = "ngModel"
+             name="description">
+    </div>
+
+    <div style="color: red;" *ngIf = "!typedDescription.valid && typedDescription.touched">
+      Description is required!
+    </div>
+
+    <div class="input-group form-group">
+
+      <input required  type="text" class="form-control" placeholder="Skill" [(ngModel)] = "skill"
+             #typedskill = "ngModel"
+             name="skill">
+    </div>
+
+    <div style="color: red;" *ngIf = "!typedskill.valid && typedskill.touched">
+      Skill is required!
+    </div>
+
+    <div class="input-group form-group">
+
+      <input required  type="text" class="form-control" placeholder="Prerequisite" [(ngModel)] = "prereq"
+             #typedprereq = "ngModel"
+             name="prereq">
+    </div>
+
+    <div style="color: red;" *ngIf = "!typedprereq.valid && typedprereq.touched">
+      Prerequisite is required!
+    </div>
+
+    <div class="input-group form-group">
+
+        <input required  type="date" class="form-control" placeholder="Course date" [(ngModel)] = "date"
+        #typedDate = "ngModel"
+        name="date">
+    </div>
+
+    <div style="color: red;" *ngIf = "!typedDate.valid && typedDate.touched">
+        Date is required!
+    </div>
+
+
+
+
+
+<div class="input-group form-group">
+
+  <input required  type="text" class="form-control" placeholder="feedback" [(ngModel)] = "feedback"
+  #typedfeedback = "ngModel"
+  name="feedback">
+</div>
+
+<div style="color: red;" *ngIf = "!typedfeedback.valid && typedfeedback.touched">
+  feedback is required!
+</div>
+
+<div class="input-group form-group">
+
+  <input required  type="text" class="form-control" placeholder="ratting" [(ngModel)] = "ratting"
+  #typedratting = "ngModel"
+  name="ratting">
+</div>
+
+<div style="color: red;" *ngIf = "!typedratting.valid && typedratting.touched">
+  ratting is required!
+</div>
+
+
+    <div class="form-group">
+        <button type="submit">Save</button>
+    </div>
+
+    <div class="form-group">
+      <button >Update</button>
+      </div>
+
+</form>
+
+</div>
+
+
+
+<table class="table">
+  <thead>
+    <tr>
+
+      <th scope="col">Event Name</th>
+      <th scope="col">description</th>
+      <th scope="col">skill</th>
+      <th scope="col">prereq</th>
+      <th scope="col">date</th>
+      <th scope="col">feedback</th>
+      <th scope="col">ratting</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let course of courses;">
+
+      <td>{{course.name}}</td>
+      <td>{{course.description}}</td>
+      <td>{{course.skill}}</td>
+      <td>{{course.prereq}}</td>
+      <td>{{course.date}}</td>
+      <td>{{course.feedback}}</td>
+      <td>{{course.ratting}}</td>
+
+    </tr>
+
+  </tbody>
+</table>
+
+</div>
